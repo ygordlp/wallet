@@ -8,7 +8,7 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner" />
+        android:id="@+id/spinBandeira" />
     
     <LinearLayout
         android:orientation="horizontal"
@@ -72,6 +72,10 @@
             android:id="@+id/txtDiaFechamentoFatura" />
     </android.support.design.widget.TextInputLayout>
 
+    <Button
+        android:text="Salvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 
 </LinearLayout>
