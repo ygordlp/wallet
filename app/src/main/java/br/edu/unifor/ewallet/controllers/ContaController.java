@@ -17,7 +17,8 @@ public class ContaController {
     }
 
     public boolean verificarContaExistente(Conta conta){
-        List<Conta> contas = Conta.find(Conta.class, "banco = ? or numeroConta = ? or titulo = ?",  conta.getBanco(), conta.getNumeroConta(), conta.getTitulo() );
+        List<Conta> contas = Conta.find(Conta.class, "banco = ? or numero_conta = ? ",  conta.getBanco().toString(),  conta.getNumeroConta().toString() );
+//        List<Conta> contas = Conta.find(Conta.class, "banco = ? ",  conta.getBanco() );
 
         if (contas.size() > 0 && contas != null){
             return true;

@@ -21,7 +21,7 @@ import br.edu.unifor.ewallet.models.TipoConta;
 
 public class InserirContaActivity extends AppCompatActivity {
 
-    private Spinner mTxtTipoConta;
+    private Spinner mSpinTipoConta;
     private EditText mTxtBanco;
     private EditText mTxtNumConta;
     private EditText mTxtTitulo;
@@ -34,14 +34,16 @@ public class InserirContaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inserir_conta);
 
-        mTxtTipoConta = (Spinner) findViewById(R.id.spinTipoConta);
+        mSpinTipoConta = (Spinner) findViewById(R.id.spinTipoConta);
         mTxtBanco = (EditText) findViewById(R.id.txtBanco);
         mTxtNumConta = (EditText) findViewById(R.id.txtNumeroConta);
         mTxtTitulo = (EditText) findViewById(R.id.txtTitulo);
         mTxtSaldo = (EditText) findViewById(R.id.txtSaldo);
         mSpinCor = (Spinner) findViewById(R.id.spinCorConta);
         mBtnSalvar = (Button) findViewById(R.id.btnSalvar);
-        mTxtTipoConta.setAdapter(new ArrayAdapter<TipoConta>(this, android.R.layout.simple_list_item_1, TipoConta.values()));
+
+
+        mSpinTipoConta.setAdapter(new ArrayAdapter<TipoConta>(this, android.R.layout.simple_list_item_1, TipoConta.values()));
 
         mBtnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +52,7 @@ public class InserirContaActivity extends AppCompatActivity {
 
                 Log.i("teste", "onClick: " + mTxtBanco.getText().toString());
                 //TipoConta tipoConta, String banco, String numeroConta, String titulo, String cor, Double saldo
-                Conta conta = new Conta((TipoConta) mTxtTipoConta.getSelectedItem(),
+                Conta conta = new Conta((TipoConta) mSpinTipoConta.getSelectedItem(),
                         mTxtBanco.getText().toString(), mTxtNumConta.getText().toString(), mTxtTitulo.getText().toString(),
                         mSpinCor.getSelectedItem().toString(), Double.parseDouble( mTxtSaldo.getText().toString()) );
 

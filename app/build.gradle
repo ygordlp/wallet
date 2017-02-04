@@ -28,4 +28,6 @@ dependencies {
     compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
     compile 'com.github.satyan:sugar:1.4'
+    compile 'com.andreabaccega:android-edittext-validator:1.3.+'
+
 }
