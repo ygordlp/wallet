@@ -5,4 +5,13 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string-array name="colors" >
+        <item >Escolha uma cor</item>
+        <item >Vermelho</item>
+        <item >Verde</item>
+        <item >Azul</item>
+        <item >Amarelo</item>
+
+    </string-array>
 </resources>
