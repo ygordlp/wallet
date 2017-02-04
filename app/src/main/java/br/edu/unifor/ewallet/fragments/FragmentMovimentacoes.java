@@ -13,14 +13,14 @@ import br.edu.unifor.ewallet.R;
  * Created by alunor17 on 04/02/17.
  */
 
-public class FragmentContas extends Fragment {
+public class FragmentMovimentacoes extends Fragment {
 
     private View rootview;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.fragment_contas, container, false);
+        rootview = inflater.inflate(R.layout.fragment_movimentacoes, container, false);
         return rootview;
     }
 }
