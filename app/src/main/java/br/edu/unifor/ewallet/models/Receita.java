@@ -8,24 +8,24 @@ import com.orm.SugarRecord;
 
 public class Receita extends SugarRecord {
 
-    private Movimentacao movimentacao;
+    private Conta conta;
     private TipoReceita tipoReceita;
 
     public Receita() {
 
     }
 
-    public Receita(Movimentacao movimentacao, TipoReceita tipoReceita) {
-        this.movimentacao = movimentacao;
+    public Receita(Conta conta, TipoReceita tipoReceita) {
+        this.conta = conta;
         this.tipoReceita = tipoReceita;
     }
 
-    public Movimentacao getMovimentacao() {
-        return movimentacao;
+    public Conta getConta() {
+        return conta;
     }
 
-    public void setMovimentacao(Movimentacao movimentacao) {
-        this.movimentacao = movimentacao;
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 
     public TipoReceita getTipoReceita() {

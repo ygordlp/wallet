@@ -29,4 +29,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.github.satyan:sugar:1.4'
     compile 'com.getbase:floatingactionbutton:1.10.1'
+    compile 'com.orhanobut:hawk:2.0.1'
 }
