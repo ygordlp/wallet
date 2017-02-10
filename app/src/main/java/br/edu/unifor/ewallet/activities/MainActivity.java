@@ -1,12 +1,10 @@
 package br.edu.unifor.ewallet.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
 
 import br.edu.unifor.ewallet.R;
 import br.edu.unifor.ewallet.fragments.FragmentCartao;
@@ -28,6 +29,11 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Fragment frag;
+    private FloatingActionButton mFabContas;
+    private FloatingActionButton mFabCartaoCredito;
+    private FloatingActionButton mFabReceitas;
+    private FloatingActionButton mFabDespesas;
+    private FloatingActionButton mFabMetas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        this.mFabContas = (FloatingActionButton) findViewById(R.id.fab_contas);
+        this.mFabCartaoCredito = (FloatingActionButton) findViewById(R.id.fab_cartao_credito);
+        this.mFabReceitas = (FloatingActionButton) findViewById(R.id.fab_receitas);
+        this.mFabDespesas = (FloatingActionButton) findViewById(R.id.fab_despesas);
+        this.mFabMetas = (FloatingActionButton) findViewById(R.id.fab_metas);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,6 +65,12 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_main, frag, "mainFrag");
             ft.commit();
         }
+
+        this.mFabContas.setOnClickListener(onClickListener);
+        this.mFabCartaoCredito.setOnClickListener(onClickListener);
+        this.mFabReceitas.setOnClickListener(onClickListener);
+        this.mFabDespesas.setOnClickListener(onClickListener);
+        this.mFabMetas.setOnClickListener(onClickListener);
 
     }
 
@@ -118,4 +136,28 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch(v.getId()){
+                case R.id.fab_contas:
+                    startActivity(new Intent(MainActivity.this, InserirContaActivity.class));
+                    break;
+                case R.id.fab_cartao_credito:
+                    startActivity(new Intent(MainActivity.this, InserirCartaoActivity.class));
+                    break;
+                case R.id.fab_receitas:
+//                    startActivity(new Intent(MainActivity.this, InserirContaActivity.class));
+                    break;
+                case R.id.fab_despesas:
+                    startActivity(new Intent(MainActivity.this, InserirDespesaActivity.class));
+                    break;
+                case R.id.fab_metas:
+//                    startActivity(new Intent(MainActivity.this, InserirContaActivity.class));
+                    break;
+            }
+
+        }
+    };
 }
