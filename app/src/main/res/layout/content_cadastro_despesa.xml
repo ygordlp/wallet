@@ -1,6 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <EditText
+        android:id="@+id/edt_valor_despesas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Valor"/>
+
+    <EditText
+        android:id="@+id/edt_data_saida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Data de Saida"/>
+
+    <EditText
+        android:id="@+id/edt_descricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descricao"/>
+
+    <Spinner
+        android:id="@+id/select_tipo_despesa"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"></Spinner>
+
+    <Spinner
+        android:id="@+id/select_contas"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"></Spinner>
+
+    <CheckBox
+        android:id="@+id/is_pago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Foi pago"/>
+
+    <CheckBox
+        android:id="@+id/is_fixa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Despesa Fixa"/>
+
+    <Button
+        android:id="@+id/btn_cadastra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastra Despesa"/>
 
 </LinearLayout>
