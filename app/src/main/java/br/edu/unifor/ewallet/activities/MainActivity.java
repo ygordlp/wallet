@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ import br.edu.unifor.ewallet.fragments.FragmentHome;
 import br.edu.unifor.ewallet.fragments.FragmentMetas;
 import br.edu.unifor.ewallet.fragments.FragmentMovimentacoes;
 import br.edu.unifor.ewallet.fragments.FragmentReceitas;
+import br.edu.unifor.ewallet.models.Conta;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Cadastro de Conta");
         setSupportActionBar(toolbar);
 
         this.mFabContas = (FloatingActionButton) findViewById(R.id.fab_contas);
@@ -47,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         this.mFabReceitas = (FloatingActionButton) findViewById(R.id.fab_receitas);
         this.mFabDespesas = (FloatingActionButton) findViewById(R.id.fab_despesas);
         this.mFabMetas = (FloatingActionButton) findViewById(R.id.fab_metas);
-
+        
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -142,7 +145,7 @@ public class MainActivity extends AppCompatActivity
         public void onClick(View v) {
             switch(v.getId()){
                 case R.id.fab_contas:
-                    startActivity(new Intent(MainActivity.this, InserirContaActivity.class));
+                    startActivity(new Intent(MainActivity.this, CadatroContaActivity.class));
                     break;
                 case R.id.fab_cartao_credito:
                     startActivity(new Intent(MainActivity.this, InserirCartaoActivity.class));
