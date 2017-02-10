@@ -1,8 +1,12 @@
 package br.edu.unifor.ewallet.controllers;
 
+import com.orm.query.Condition;
+import com.orm.query.Select;
+
 import java.util.List;
 
 import br.edu.unifor.ewallet.models.Conta;
+import br.edu.unifor.ewallet.models.Usuarios;
 
 import static android.R.attr.author;
 
@@ -12,18 +16,32 @@ import static android.R.attr.author;
 
 public class ContaController {
 
-    public void inserirConta(Conta conta){
-        conta.save();
+    public static List<Conta> getAll() {
+        return Conta.listAll(Conta.class);
     }
 
-    public boolean verificarContaExistente(Conta conta){
-        List<Conta> contas = Conta.find(Conta.class, "banco = ? or numeroConta = ? or titulo = ?",  conta.getBanco(), conta.getNumeroConta(), conta.getTitulo() );
+    public static Conta getById(Long id) {
+        return Conta.findById(Conta.class, id);
+    }
 
-        if (contas.size() > 0 && contas != null){
-            return true;
-        }else{
-            return false;
-        }
+    public static Long insert(Conta conta) {
+        return conta.save();
+    }
 
+    public static Long update(Conta conta, Long id) {
+        Conta contaAtual = getById(id);
+        contaAtual.setUsuario(conta.getUsuario());
+        contaAtual.setTitulo(conta.getTitulo());
+        contaAtual.setBanco(conta.getBanco());
+        contaAtual.setCor(conta.getCor());
+        contaAtual.setNumeroConta(conta.getNumeroConta());
+        contaAtual.setSaldo(conta.getSaldo());
+        contaAtual.setTipoConta(conta.getTipoConta());
+        return contaAtual.save();
+    }
+
+    public static boolean delete(Long id) {
+        Conta contaAtual = getById(id);
+        return contaAtual.delete();
     }
 }
