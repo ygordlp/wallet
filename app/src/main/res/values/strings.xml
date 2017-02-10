@@ -15,6 +15,10 @@
 
     </string-array>
     <string name="title_activity_teste">teste</string>
-    <string name="title_activity_splash">SplashActivity</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_splash">Wallet</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_cadastro_usuario">Cadastro de Usuario</string>
+    <string name="title_activity_cadastro_conta">Cadastro de Conta</string>
+    <string name="title_activity_cadastro_cartao">Cadastro de Cartão de Credito</string>
+    <string name="title_activity_despesa">Cadastro de Despesa</string>
 </resources>
