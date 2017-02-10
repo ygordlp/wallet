@@ -1,15 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:padding="24dp"
+    android:gravity="center"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="br.edu.unifor.ewallet.activities.LoginActivity"
     tools:showIn="@layout/activity_login">
 
 
+    <EditText
+        android:id="@+id/edt_email"
+        android:hint="Email"
+        android:layout_margin="8dp"
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-</RelativeLayout>
+    <EditText
+        android:id="@+id/edt_senha"
+        android:hint="Senha"
+        android:layout_margin="8dp"
+        android:inputType="numberPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:text="Login"
+        android:layout_margin="8dp"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/btn_registra"
+        android:text="Registre-se"
+        android:layout_margin="8dp"
+        android:layout_gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
