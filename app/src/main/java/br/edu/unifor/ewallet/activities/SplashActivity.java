@@ -6,7 +6,10 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.orhanobut.hawk.Hawk;
+
 import br.edu.unifor.ewallet.R;
+import br.edu.unifor.ewallet.models.Usuarios;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -15,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R .id.toolbar);
         setSupportActionBar(toolbar);
 
         new CountDownTimer(1000, 5000){
@@ -27,7 +30,12 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                Usuarios user = Hawk.get("user");
+                if (user == null) {
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                } else {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                }
             }
         }.start();
     }
