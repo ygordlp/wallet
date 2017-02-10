@@ -2,29 +2,42 @@ package br.edu.unifor.ewallet.models;
 
 import com.orm.SugarRecord;
 
+import java.util.List;
+
 /**
  * Created by alunor17 on 04/02/17.
  */
 
 public class Conta extends SugarRecord {
+
+    private Usuarios usuario;
     private TipoConta tipoConta;
+    private String titulo;
     private String banco;
     private String numeroConta;
-    private String titulo;
-    private String cor;
     private Double saldo;
+    private String cor;
 
     public Conta(){
 
     }
 
-    public Conta(TipoConta tipoConta, String banco, String numeroConta, String titulo, String cor, Double saldo) {
+    public Conta(TipoConta tipoConta, String banco, String numeroConta, String titulo, String cor, Double saldo, Usuarios usuario) {
         this.tipoConta = tipoConta;
         this.banco = banco;
         this.numeroConta = numeroConta;
         this.titulo = titulo;
         this.cor = cor;
         this.saldo = saldo;
+        this.usuario = usuario;
+    }
+
+    List<Receita> getReceitas() {
+        return Receita.find(Receita.class, "conta = ?", String.valueOf(getId()));
+    }
+
+    List<Despesa> getDespesas() {
+        return Despesa.find(Despesa.class, "conta = ?", String.valueOf(getId()));
     }
 
     public TipoConta getTipoConta() {
@@ -73,5 +86,13 @@ public class Conta extends SugarRecord {
 
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
+    }
+
+    public Usuarios getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuarios usuario) {
+        this.usuario = usuario;
     }
 }

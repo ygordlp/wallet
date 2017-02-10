@@ -15,4 +15,6 @@
 
     </string-array>
     <string name="title_activity_teste">teste</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 </resources>

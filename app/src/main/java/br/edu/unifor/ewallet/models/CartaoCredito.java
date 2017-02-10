@@ -9,6 +9,7 @@ import com.orm.SugarRecord;
 public class CartaoCredito extends SugarRecord {
 
     private Bandeira bandeira;
+    private Usuarios usuario;
     private String numeroCartao;
     private String codigoSeguranca;
     private Double limite;
@@ -16,13 +17,14 @@ public class CartaoCredito extends SugarRecord {
     private Integer diaFechamento;
     private Double valorFaturaAtual;
 
+
     public CartaoCredito() {
 
     }
 
     public CartaoCredito(Bandeira bandeira, String numeroCartao, String codigoSeguranca,
                          Double limite, Integer diaVencimento, Integer diaFechamento,
-                         Double valorFaturaAtual) {
+                         Double valorFaturaAtual, Usuarios usuario) {
         this.bandeira = bandeira;
         this.numeroCartao = numeroCartao;
         this.codigoSeguranca = codigoSeguranca;
@@ -30,6 +32,7 @@ public class CartaoCredito extends SugarRecord {
         this.diaVencimento = diaVencimento;
         this.diaFechamento = diaFechamento;
         this.valorFaturaAtual = valorFaturaAtual;
+        this.usuario = usuario;
     }
 
     public Bandeira getBandeira() {
@@ -38,6 +41,14 @@ public class CartaoCredito extends SugarRecord {
 
     public void setBandeira(Bandeira bandeira) {
         this.bandeira = bandeira;
+    }
+
+    public Usuarios getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuarios usuario) {
+        this.usuario = usuario;
     }
 
     public String getNumeroCartao() {

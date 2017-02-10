@@ -16,6 +16,7 @@ public class Movimentacao extends SugarRecord {
     private Conta conta;
     private Boolean flagRepetir;
     private Periodo periodo;
+    private Usuarios usuario;
 
     public Movimentacao() {
 

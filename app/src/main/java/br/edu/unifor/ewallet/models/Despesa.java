@@ -8,24 +8,24 @@ import com.orm.SugarRecord;
 
 public class Despesa extends SugarRecord {
 
-    private Movimentacao movimentacao;
+    private Conta conta;
     private TipoDespesa tipoDespesa;
 
     public Despesa() {
 
     }
 
-    public Despesa(Movimentacao movimentacao, TipoDespesa tipoDespesa) {
-        this.movimentacao = movimentacao;
+    public Despesa(Conta conta, TipoDespesa tipoDespesa) {
+        this.conta = conta;
         this.tipoDespesa = tipoDespesa;
     }
 
-    public Movimentacao getMovimentacao() {
-        return movimentacao;
+    public Conta getConta() {
+        return conta;
     }
 
-    public void setMovimentacao(Movimentacao movimentacao) {
-        this.movimentacao = movimentacao;
+    public void setConta(Conta conta) {
+        this.conta = conta;
     }
 
     public TipoDespesa getTipoDespesa() {
