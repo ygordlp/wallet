@@ -36,6 +36,7 @@
         fab:fab_labelsPosition="left">
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_contas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/colorAccent"
@@ -46,6 +47,7 @@
             fab:fab_colorPressed="@color/colorAccent"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_cartao_credito"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/colorAccent"
@@ -56,6 +58,7 @@
             fab:fab_colorPressed="@color/colorAccent"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_receitas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/colorAccent"
@@ -65,6 +68,7 @@
             fab:fab_colorPressed="@color/colorAccent"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_despesas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/colorAccent"
@@ -75,6 +79,7 @@
             fab:fab_colorPressed="@color/colorAccent"/>
 
         <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_metas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/colorAccent"

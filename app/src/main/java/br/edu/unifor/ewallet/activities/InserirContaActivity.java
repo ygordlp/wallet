@@ -2,17 +2,15 @@ package br.edu.unifor.ewallet.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import br.edu.unifor.ewallet.R;
-import br.edu.unifor.ewallet.controllers.ContaController;
-import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.TipoConta;
 
 /**
@@ -33,6 +31,8 @@ public class InserirContaActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.inserir_conta);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         mTxtTipoConta = (Spinner) findViewById(R.id.spinTipoConta);
         mTxtBanco = (EditText) findViewById(R.id.txtBanco);
@@ -50,19 +50,19 @@ public class InserirContaActivity extends AppCompatActivity {
 
                 Log.i("teste", "onClick: " + mTxtBanco.getText().toString());
                 //TipoConta tipoConta, String banco, String numeroConta, String titulo, String cor, Double saldo
-                Conta conta = new Conta((TipoConta) mTxtTipoConta.getSelectedItem(),
-                        mTxtBanco.getText().toString(), mTxtNumConta.getText().toString(), mTxtTitulo.getText().toString(),
-                        mSpinCor.getSelectedItem().toString(), Double.parseDouble( mTxtSaldo.getText().toString()) );
-
-                ContaController contaController = new ContaController();
-                boolean result = contaController.verificarContaExistente(conta);
-                if (result == true){
-                    Toast.makeText(getApplicationContext(), "JA EXISTE", Toast.LENGTH_SHORT).show();
-                }else{
-                    contaController.inserirConta(conta);
-                    Toast.makeText(getApplicationContext(), "SALVO", Toast.LENGTH_SHORT).show();
-
-                }
+//                Conta conta = new Conta((TipoConta) mTxtTipoConta.getSelectedItem(),
+//                        mTxtBanco.getText().toString(), mTxtNumConta.getText().toString(), mTxtTitulo.getText().toString(),
+//                        mSpinCor.getSelectedItem().toString(), Double.parseDouble( mTxtSaldo.getText().toString()) );
+//
+//                ContaController contaController = new ContaController();
+//                boolean result = contaController.verificarContaExistente(conta);
+//                if (result == true){
+//                    Toast.makeText(getApplicationContext(), "JA EXISTE", Toast.LENGTH_SHORT).show();
+//                }else{
+//                    contaController.inserirConta(conta);
+//                    Toast.makeText(getApplicationContext(), "SALVO", Toast.LENGTH_SHORT).show();
+//
+//                }
             }
         });
     }

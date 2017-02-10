@@ -1,7 +1,6 @@
 package br.edu.unifor.ewallet.activities;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,13 +12,19 @@ import br.edu.unifor.ewallet.R;
  */
 
 public class InserirCartaoActivity extends AppCompatActivity {
-    Spinner mSpinBandeira;
-    EditText mTxtNumeroCartao;
-    EditText mTxtCodigo;
-    EditText mTxtLimiteCartao;
-    EditText mTxtDiaVencimentoFatura;
-    EditText mTxtDiaFechamentoFatura;
+    private Spinner mSpinBandeira;
+    private EditText mTxtNumeroCartao;
+    private EditText mTxtCodigo;
+    private EditText mTxtLimiteCartao;
+    private EditText mTxtDiaVencimentoFatura;
+    private EditText mTxtDiaFechamentoFatura;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.inserir_cartao);
+        iniciarComponentes();
+    }
 
     private void iniciarComponentes(){
         mSpinBandeira = (Spinner) findViewById(R.id.spinBandeira);
@@ -29,12 +34,4 @@ public class InserirCartaoActivity extends AppCompatActivity {
         mTxtDiaVencimentoFatura = (EditText) findViewById(R.id.txtDiaVencimentoFatura);
         mTxtDiaFechamentoFatura = (EditText) findViewById(R.id.txtDiaFechamentoFatura);
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        iniciarComponentes();
-    }
-
-
 }
