@@ -7,6 +7,7 @@ import java.util.List;
 
 import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.Despesa;
+import br.edu.unifor.ewallet.models.TipoConta;
 import br.edu.unifor.ewallet.models.Usuarios;
 
 /**
@@ -22,6 +23,14 @@ public class DespesaController {
     public static Despesa getById(Long id) {
         return Despesa.findById(Despesa.class, id);
     }
+
+//    public static List<String> getDespesasByTempo(){
+////        Conta conta = Select.from(Conta.class).where(Condition.prop("tipo_conta").eq(TipoConta.getValue(tipoConta))).first();
+//        if (null != null) {
+////            return conta;
+//        }
+//        return null;
+//    }
 
     public static Long insert(Despesa despesa) {
         Conta conta = despesa.getConta();
