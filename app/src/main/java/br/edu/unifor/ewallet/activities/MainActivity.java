@@ -26,6 +26,7 @@ import br.edu.unifor.ewallet.fragments.FragmentCartao;
 import br.edu.unifor.ewallet.fragments.FragmentCategorias;
 import br.edu.unifor.ewallet.fragments.FragmentContas;
 import br.edu.unifor.ewallet.fragments.FragmentDespesas;
+import br.edu.unifor.ewallet.fragments.FragmentDespesasGrafico;
 import br.edu.unifor.ewallet.fragments.FragmentHome;
 import br.edu.unifor.ewallet.fragments.FragmentMetas;
 import br.edu.unifor.ewallet.fragments.FragmentMovimentacoes;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Cadastro de Conta");
+        toolbar.setTitle("Wallet");
         setSupportActionBar(toolbar);
 
         this.mFabCartaoCredito = (FloatingActionButton) findViewById(R.id.fab_cartao_credito);
@@ -169,6 +170,8 @@ public class MainActivity extends AppCompatActivity
             frag = new FragmentDespesas();
         } else if (id == R.id.nav_metas) {
             frag = new FragmentMetas();
+        }else if (id == R.id.nav_grafico_despesas){
+            frag = new FragmentDespesasGrafico();
         }
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
