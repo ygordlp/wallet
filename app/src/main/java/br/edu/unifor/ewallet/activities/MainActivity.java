@@ -105,8 +105,6 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
         }
     }
 
@@ -171,7 +169,7 @@ public class MainActivity extends AppCompatActivity
                     startActivity(new Intent(MainActivity.this, InserirCartaoActivity.class));
                     break;
                 case R.id.fab_receitas:
-//                    startActivity(new Intent(MainActivity.this, InserirContaActivity.class));
+                    startActivity(new Intent(MainActivity.this, CadastroReceitaActivity.class));
                     break;
                 case R.id.fab_despesas:
                     startActivity(new Intent(MainActivity.this, InserirDespesaActivity.class));
