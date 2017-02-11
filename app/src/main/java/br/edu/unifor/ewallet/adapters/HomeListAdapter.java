@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.Calendar;
 import java.util.List;
 
 import br.edu.unifor.ewallet.R;
 import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.Despesa;
+import br.edu.unifor.ewallet.util.Util;
 
 /**
  * Created by Renan on 11/02/2017.
@@ -73,7 +75,7 @@ public class HomeListAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.item_list_home_header, parent, false);
 
             TextView txtTitulo = (TextView) view.findViewById(R.id.txtTitleContas);
-            txtTitulo.setText("Despesas");
+            txtTitulo.setText("Despesas do mês (" + Util.getCurrentMonthName() + "/" + Util.getCurrentYear() + ")");
         } else {
             view = inflater.inflate(R.layout.item_lista_despesa, parent, false);
 

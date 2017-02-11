@@ -1,10 +1,13 @@
 package br.edu.unifor.ewallet.controllers;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.Despesa;
+import br.edu.unifor.ewallet.util.Util;
 
 /**
  * Created by maycon on 2/10/17.
@@ -20,7 +23,20 @@ public class DespesaController {
         return Despesa.findById(Despesa.class, id);
     }
 
+    public static List<Despesa> getDespesasDoMes() {
+        Date startOfMonth = Util.getStartOfMonth(new Date());
+        return Despesa.find(Despesa.class, "data IS NOT NULL AND data >= " + startOfMonth.getTime());
+    }
+
+    public static List<Despesa> getDespesasDoMes(Date date) {
+        Date startOfMonth = Util.getStartOfMonth(date);
+        return Despesa.find(Despesa.class, "data IS NOT NULL AND data >= " + startOfMonth.getTime());
+    }
+
     public static Long insert(Despesa despesa) {
+        if (despesa.getData() == null) {
+            despesa.setData(new Date());
+        }
         Conta conta = despesa.getConta();
         conta.setSaldo(conta.getSaldo() - despesa.getValor());
         ContaController.update(conta, conta.getId());
