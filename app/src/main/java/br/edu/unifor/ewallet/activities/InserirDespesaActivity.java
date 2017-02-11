@@ -78,7 +78,6 @@ public class InserirDespesaActivity extends AppCompatActivity implements TimePic
                     snackbar = Snackbar
                             .make(coordinatorLayout, "Despesa cadastrado com sucesso!", Snackbar.LENGTH_LONG);
 //                    clearFields();
-
                 } else {
                     snackbar = Snackbar
                             .make(coordinatorLayout, "Ocorreu um erro!", Snackbar.LENGTH_LONG);
@@ -104,12 +103,10 @@ public class InserirDespesaActivity extends AppCompatActivity implements TimePic
 
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
-        String date = ""+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
-        dateSelected = new Date();
-        dateSelected.setDate(dayOfMonth);
-        dateSelected.setMonth(monthOfYear+1);
-        dateSelected.setYear(year);
-        mEdtDataSaida.setText(date);
+        String dateScreen = ""+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
+        String date = ""+(monthOfYear+1)+"/"+dayOfMonth+"/"+year;
+        dateSelected = new Date(Date.parse(date));
+        mEdtDataSaida.setText(dateScreen);
     }
 
     @Override
