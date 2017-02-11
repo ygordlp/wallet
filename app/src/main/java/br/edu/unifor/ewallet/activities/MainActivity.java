@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
 
         Conta carteira = new Conta();
         carteira.setTitulo("Carteira");
-        carteira.setSaldo(0d);
+        carteira.setSaldo(1000d);
         carteira.setTipoConta(TipoConta.CARTEIRA);
         ContaController.insert(carteira);
     }

@@ -5,6 +5,7 @@ import com.orm.query.Select;
 
 import java.util.List;
 
+import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.Despesa;
 import br.edu.unifor.ewallet.models.Usuarios;
 
@@ -23,6 +24,9 @@ public class DespesaController {
     }
 
     public static Long insert(Despesa despesa) {
+        Conta conta = despesa.getConta();
+        conta.setSaldo(conta.getSaldo() - despesa.getValor());
+        ContaController.update(conta, conta.getId());
         return despesa.save();
     }
 

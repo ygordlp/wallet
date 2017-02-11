@@ -68,7 +68,7 @@ public class InserirDespesaActivity extends AppCompatActivity {
                 Snackbar snackbar = null;
                 if (DespesaController.insert(despesa) != null) {
                     snackbar = Snackbar
-                            .make(coordinatorLayout, "Usuario cadastrado com sucesso!", Snackbar.LENGTH_LONG);
+                            .make(coordinatorLayout, "Despesa cadastrado com sucesso!", Snackbar.LENGTH_LONG);
 //                    clearFields();
 
                 } else {
