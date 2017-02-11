@@ -11,6 +11,12 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import br.edu.unifor.ewallet.R;
 import br.edu.unifor.ewallet.controllers.ContaController;
@@ -19,10 +25,10 @@ import br.edu.unifor.ewallet.controllers.ReceitaController;
 import br.edu.unifor.ewallet.models.Receita;
 import br.edu.unifor.ewallet.models.TipoReceita;
 
-public class CadastroReceitaActivity extends AppCompatActivity implements View.OnClickListener{
+public class CadastroReceitaActivity extends AppCompatActivity implements View.OnClickListener, DatePickerDialog.OnDateSetListener{
 
     private EditText mEdtValor;
-    private EditText mEdtData;
+    private TextView mEdtData;
     private EditText mEdtDescricao;
     private Spinner mSelectTipoReceita;
     private Spinner mSelectContas;
@@ -30,6 +36,8 @@ public class CadastroReceitaActivity extends AppCompatActivity implements View.O
     private CheckBox mIsFixa;
     private Button mBtnCadastra;
     private CoordinatorLayout coordinatorLayout;
+    Calendar now = Calendar.getInstance();
+    private Date dateSelected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +49,7 @@ public class CadastroReceitaActivity extends AppCompatActivity implements View.O
         getSupportActionBar().setHomeButtonEnabled(true);
 
         this.mEdtValor = (EditText) findViewById(R.id.edt_valor_receita);
-        this.mEdtData = (EditText) findViewById(R.id.edt_data_entrada);
+        this.mEdtData = (TextView) findViewById(R.id.edt_data_entrada);
         this.mEdtDescricao = (EditText) findViewById(R.id.edt_descricao);
         this.mSelectTipoReceita = (Spinner) findViewById(R.id.select_tipo_receita);
         this.mSelectContas = (Spinner) findViewById(R.id.select_contas);
@@ -51,12 +59,24 @@ public class CadastroReceitaActivity extends AppCompatActivity implements View.O
         this.coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorReceita);
 
         this.mBtnCadastra.setOnClickListener(this);
+        this.mEdtData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog dpd = DatePickerDialog.newInstance(
+                        CadastroReceitaActivity.this,
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+                );
+                dpd.show(getFragmentManager(), "Datepickerdialog");
+            }
+        });
     }
 
     public void salvaReceita(){
         Receita receita = new Receita();
         receita.setConta(ContaController.getByNome(mSelectContas.getSelectedItem().toString()));
-        receita.setData(mEdtData.getText().toString());
+        receita.setData(dateSelected);
         receita.setDescricao(mEdtDescricao.getText().toString());
         receita.setFixa(mIsFixa.isChecked());
         receita.setTipoReceita(TipoReceita.getValue(mSelectTipoReceita.getSelectedItem().toString()));
@@ -79,5 +99,13 @@ public class CadastroReceitaActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         salvaReceita();
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        String dateScreen = ""+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
+        String date = ""+(monthOfYear+1)+"/"+dayOfMonth+"/"+year;
+        dateSelected = new Date(Date.parse(date));
+        mEdtData.setText(dateScreen);
     }
 }

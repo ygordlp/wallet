@@ -10,9 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import br.edu.unifor.ewallet.R;
-import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.Despesa;
-import br.edu.unifor.ewallet.models.TipoDespesa;
 
 /**
  * Created by alunor17 on 10/02/17.
@@ -67,7 +65,7 @@ public class ListaDespesaAdapter extends BaseAdapter {
         txtCategoriaDespesa.setText(despesas.get(i).getTipoDespesa().getString());
         txtValorDespesa.setText("R$ "+despesas.get(i).getValor());
         txtTipoContaDespesa.setText( despesas.get(i).getConta().getTipoConta().getString());
-        txtDataDespesa.setText(despesas.get(i).getDataSaida());
+        txtDataDespesa.setText(despesas.get(i).getDateBr());
 
         return view;
     }

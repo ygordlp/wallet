@@ -3,6 +3,11 @@ package br.edu.unifor.ewallet.models;
 import com.google.common.base.Strings;
 import com.orm.SugarRecord;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by alunor17 on 04/02/17.
  */
@@ -12,7 +17,7 @@ public class Despesa extends SugarRecord {
     private Conta conta;
     private TipoDespesa tipoDespesa;
     private Double valor;
-    private String dataSaida;
+    private Date data;
     private String descricao;
     private boolean isPago;
     private boolean isFixa;
@@ -21,11 +26,11 @@ public class Despesa extends SugarRecord {
 
     }
 
-    public Despesa(Conta conta, TipoDespesa tipoDespesa, Double valor, String dataSaida, String descricao, boolean isPago, boolean isFixa) {
+    public Despesa(Conta conta, TipoDespesa tipoDespesa, Double valor, Date data, String descricao, boolean isPago, boolean isFixa) {
         this.conta = conta;
         this.tipoDespesa = tipoDespesa;
         this.valor = valor;
-        this.dataSaida = dataSaida;
+        this.data = data;
         this.descricao = descricao;
         this.isPago = isPago;
         this.isFixa = isFixa;
@@ -55,12 +60,12 @@ public class Despesa extends SugarRecord {
         this.valor = valor;
     }
 
-    public String getDataSaida() {
-        return dataSaida;
+    public Date getData() {
+        return this.data;
     }
 
-    public void setDataSaida(String dataSaida) {
-        this.dataSaida = dataSaida;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public String getDescricao() {
@@ -85,5 +90,16 @@ public class Despesa extends SugarRecord {
 
     public void setFixa(boolean fixa) {
         isFixa = fixa;
+    }
+
+    public String getDateBr(){
+        String stringData;
+
+        Format formatter;
+
+        formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+        stringData = formatter.format(data);
+
+        return stringData;
     }
 }

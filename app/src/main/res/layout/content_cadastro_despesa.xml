@@ -14,10 +14,13 @@
         android:inputType="numberDecimal"
         android:hint="Valor"/>
 
-    <EditText
+    <TextView
         android:id="@+id/edt_data_saida"
         android:layout_width="match_parent"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:hint="Data de Saida"/>
 
     <EditText
@@ -30,13 +33,13 @@
         android:id="@+id/select_tipo_despesa"
         android:layout_width="match_parent"
         android:entries="@array/tiposDespesa"
-        android:layout_height="40dp"></Spinner>
+        android:layout_height="40dp"/>
 
     <Spinner
         android:id="@+id/select_contas"
         android:layout_width="match_parent"
         android:entries="@array/tiposContas"
-        android:layout_height="40dp"></Spinner>
+        android:layout_height="40dp"/>
 
     <CheckBox
         android:id="@+id/is_pago"

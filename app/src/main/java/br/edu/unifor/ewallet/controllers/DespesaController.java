@@ -1,14 +1,11 @@
 package br.edu.unifor.ewallet.controllers;
 
-import com.orm.query.Condition;
-import com.orm.query.Select;
-
+import java.util.Date;
 import java.util.List;
 
 import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.Despesa;
-import br.edu.unifor.ewallet.models.TipoConta;
-import br.edu.unifor.ewallet.models.Usuarios;
+
 
 /**
  * Created by maycon on 2/10/17.
@@ -44,7 +41,7 @@ public class DespesaController {
         despesaAtual.setConta(despesa.getConta());
         despesaAtual.setTipoDespesa(despesa.getTipoDespesa());
         despesaAtual.setValor(despesa.getValor());
-        despesaAtual.setDataSaida(despesa.getDataSaida());
+        despesaAtual.setData(new Date());
         despesaAtual.setDescricao(despesa.getDescricao());
         despesaAtual.setPago(despesa.isPago());
         despesaAtual.setFixa(despesa.isFixa());

@@ -2,6 +2,11 @@ package br.edu.unifor.ewallet.models;
 
 import com.orm.SugarRecord;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by alunor17 on 04/02/17.
  */
@@ -11,7 +16,7 @@ public class Receita extends SugarRecord {
     private Conta conta;
     private TipoReceita tipoReceita;
     private Double valor;
-    private String data;
+    private Date data;
     private String descricao;
     private boolean isRecebida;
     private boolean isFixa;
@@ -20,7 +25,7 @@ public class Receita extends SugarRecord {
 
     }
 
-    public Receita(Conta conta, TipoReceita tipoReceita, Double valor, String data, String descricao, boolean isRecebida, boolean isFixa) {
+    public Receita(Conta conta, TipoReceita tipoReceita, Double valor, Date data, String descricao, boolean isRecebida, boolean isFixa) {
         this.conta = conta;
         this.tipoReceita = tipoReceita;
         this.valor = valor;
@@ -54,11 +59,11 @@ public class Receita extends SugarRecord {
         this.valor = valor;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
@@ -84,5 +89,16 @@ public class Receita extends SugarRecord {
 
     public void setFixa(boolean fixa) {
         isFixa = fixa;
+    }
+
+    public String getDateBr(){
+        String stringData;
+
+        Format formatter;
+
+        formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+        stringData = formatter.format(data);
+
+        return stringData;
     }
 }
