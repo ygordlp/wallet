@@ -2,13 +2,14 @@ package br.edu.unifor.ewallet.models;
 
 import com.orm.SugarRecord;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by alunor17 on 04/02/17.
  */
 
-public class Conta extends SugarRecord {
+public class Conta extends SugarRecord implements Serializable{
 
     private Usuarios usuario;
     private TipoConta tipoConta;

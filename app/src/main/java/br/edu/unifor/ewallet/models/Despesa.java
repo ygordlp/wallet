@@ -1,13 +1,15 @@
 package br.edu.unifor.ewallet.models;
 
-import com.google.common.base.Strings;
 import com.orm.SugarRecord;
+
+import java.io.Serializable;
 
 /**
  * Created by alunor17 on 04/02/17.
  */
 
-public class Despesa extends SugarRecord {
+public class Despesa extends SugarRecord implements Serializable {
+
 
     private Conta conta;
     private TipoDespesa tipoDespesa;

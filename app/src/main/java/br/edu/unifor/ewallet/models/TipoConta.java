@@ -6,14 +6,12 @@ package br.edu.unifor.ewallet.models;
 
 public enum TipoConta {
 
-    CORRENTE, POUPANCA, CARTEIRA;
+    CORRENTE, CARTEIRA;
 
     public String getString(){
         switch (this){
             case CORRENTE:
                 return "Corrente";
-            case POUPANCA:
-                return "Poupança";
             case CARTEIRA:
                 return "Carteira";
             default:
@@ -25,8 +23,6 @@ public enum TipoConta {
         switch (string) {
             case "Corrente":
                 return CORRENTE;
-            case "Poupança":
-                return POUPANCA;
             case "Carteira":
                 return CARTEIRA;
             default:
