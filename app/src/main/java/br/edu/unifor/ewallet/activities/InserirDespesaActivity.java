@@ -60,7 +60,7 @@ public class InserirDespesaActivity extends AppCompatActivity {
         this.mBtnCadastra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Despesa despesa = new Despesa(ContaController.getByNome(mSelectTipoDespesa.getSelectedItem().toString()),
+                Despesa despesa = new Despesa(ContaController.getByNome(mSelectContas.getSelectedItem().toString()),
                         TipoDespesa.getValue(mSelectTipoDespesa.getSelectedItem().toString()),
                         Double.valueOf(mEdtValor.getText().toString()), mEdtDataSaida.getText().toString(),
                         mEdtDescricao.getText().toString(), mIsPago.isChecked(), mIsFixa.isChecked());
