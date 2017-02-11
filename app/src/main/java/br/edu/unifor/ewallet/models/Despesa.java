@@ -12,8 +12,8 @@ public class Despesa extends SugarRecord {
     private Conta conta;
     private TipoDespesa tipoDespesa;
     private Double valor;
-    private Strings dataSaida;
-    private Strings descricao;
+    private String dataSaida;
+    private String descricao;
     private boolean isPago;
     private boolean isFixa;
 
@@ -23,7 +23,7 @@ public class Despesa extends SugarRecord {
 
     }
 
-    public Despesa(Conta conta, TipoDespesa tipoDespesa, Double valor, Strings dataSaida, Strings descricao, boolean isPago, boolean isFixa) {
+    public Despesa(Conta conta, TipoDespesa tipoDespesa, Double valor, String dataSaida, String descricao, boolean isPago, boolean isFixa) {
         this.conta = conta;
         this.tipoDespesa = tipoDespesa;
         this.valor = valor;
@@ -57,19 +57,19 @@ public class Despesa extends SugarRecord {
         this.valor = valor;
     }
 
-    public Strings getDataSaida() {
+    public String getDataSaida() {
         return dataSaida;
     }
 
-    public void setDataSaida(Strings dataSaida) {
+    public void setDataSaida(String dataSaida) {
         this.dataSaida = dataSaida;
     }
 
-    public Strings getDescricao() {
+    public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(Strings descricao) {
+    public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 

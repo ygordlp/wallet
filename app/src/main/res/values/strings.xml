@@ -19,6 +19,18 @@
         <item>Carteira</item>
     </string-array>
 
+    <string-array name="tiposDespesa">
+        <item>Alimentacao</item>
+        <item>Educacao</item>
+        <item>Lazer</item>
+        <item>Moradia</item>
+        <item>Pagamentos</item>
+        <item>Roupa</item>
+        <item>Saude</item>
+        <item>Transporte</item>
+        <item>Outros</item>
+    </string-array>
+
     <string name="title_activity_teste">teste</string>
     <string name="title_activity_splash">Wallet</string>
     <string name="title_activity_login">Login</string>

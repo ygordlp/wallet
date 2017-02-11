@@ -6,6 +6,7 @@ import com.orm.query.Select;
 import java.util.List;
 
 import br.edu.unifor.ewallet.models.Conta;
+import br.edu.unifor.ewallet.models.TipoConta;
 import br.edu.unifor.ewallet.models.Usuarios;
 
 import static android.R.attr.author;
@@ -22,6 +23,14 @@ public class ContaController {
 
     public static Conta getById(Long id) {
         return Conta.findById(Conta.class, id);
+    }
+
+    public static Conta getByNome(String tipoConta) {
+        Conta conta = Select.from(Conta.class).where(Condition.prop("tipo_conta").eq(TipoConta.getValue(tipoConta))).first();
+        if (conta != null) {
+            return conta;
+        }
+        return null;
     }
 
     public static Long insert(Conta conta) {

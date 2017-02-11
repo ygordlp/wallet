@@ -28,11 +28,13 @@
     <Spinner
         android:id="@+id/select_tipo_despesa"
         android:layout_width="match_parent"
+        android:entries="@array/tiposDespesa"
         android:layout_height="40dp"></Spinner>
 
     <Spinner
         android:id="@+id/select_contas"
         android:layout_width="match_parent"
+        android:entries="@array/tiposContas"
         android:layout_height="40dp"></Spinner>
 
     <CheckBox
