@@ -89,7 +89,6 @@ public class HomeListAdapter extends BaseAdapter implements DatePickerDialog.OnD
                             now.get(Calendar.MONTH),
                             now.get(Calendar.DAY_OF_MONTH)
                     );
-                    dpd.showYearPickerFirst(true);
                     dpd.show(activity.getFragmentManager(), "Datepickerdialog");
                 }
             });
