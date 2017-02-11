@@ -15,7 +15,7 @@ import java.util.Locale;
 public class Despesa extends SugarRecord {
 
     private Conta conta;
-    private TipoDespesa tipoDespesa;
+    private Categoria categoria;
     private Double valor;
     private Date data;
     private String descricao;
@@ -26,9 +26,9 @@ public class Despesa extends SugarRecord {
 
     }
 
-    public Despesa(Conta conta, TipoDespesa tipoDespesa, Double valor, Date data, String descricao, boolean isPago, boolean isFixa) {
+    public Despesa(Conta conta, Categoria categoria, Double valor, Date data, String descricao, boolean isPago, boolean isFixa) {
         this.conta = conta;
-        this.tipoDespesa = tipoDespesa;
+        this.categoria = categoria;
         this.valor = valor;
         this.data = data;
         this.descricao = descricao;
@@ -44,12 +44,12 @@ public class Despesa extends SugarRecord {
         this.conta = conta;
     }
 
-    public TipoDespesa getTipoDespesa() {
-        return tipoDespesa;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setTipoDespesa(TipoDespesa tipoDespesa) {
-        this.tipoDespesa = tipoDespesa;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public Double getValor() {

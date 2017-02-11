@@ -29,11 +29,26 @@
         android:layout_height="wrap_content"
         android:hint="Descricao"/>
 
-    <Spinner
-        android:id="@+id/select_tipo_despesa"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:entries="@array/tiposDespesa"
-        android:layout_height="40dp"/>
+        android:layout_height="wrap_content">
+        <Spinner
+            android:layout_weight="0.85"
+            android:id="@+id/select_tipo_despesa"
+            android:layout_width="0dp"
+            android:layout_height="40dp"/>
+
+        <ImageButton
+            android:id="@+id/btnInserirCategoria"
+            android:layout_gravity="center"
+            android:layout_weight="0.15"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_input_add"/>
+
+    </LinearLayout>
+
 
     <Spinner
         android:id="@+id/select_contas"
