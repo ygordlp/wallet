@@ -57,6 +57,10 @@ public class ListaDespesaAdapter extends BaseAdapter {
         TextView txtTipoContaDespesa = (TextView) view.findViewById(R.id.txtTipoContaDespesa);
         TextView txtDataDespesa = (TextView) view.findViewById(R.id.txtDataDespesa);
 
+        TextView txtPorcentagem = (TextView) view.findViewById(R.id.txtPorcentagem);
+        txtPorcentagem.setText(String.format("%.2f",(despesas.get(i).getValor()/getValorTotal(despesas))*100) + " %");
+
+
 
         txtCategoriaDespesa.setText(despesas.get(i).getTipoDespesa().getString());
         txtValorDespesa.setText("R$ "+despesas.get(i).getValor());
@@ -64,6 +68,19 @@ public class ListaDespesaAdapter extends BaseAdapter {
         txtDataDespesa.setText(despesas.get(i).getDateBr());
 
         return view;
+    }
+
+    private double getValorTotal(List<Despesa> despesasList){
+        double valorTotal = 0;
+        for (
+             Despesa despesa : despesasList) {
+            valorTotal += despesa.getValor();
+        }
+
+
+
+        return valorTotal;
+
     }
 
 }

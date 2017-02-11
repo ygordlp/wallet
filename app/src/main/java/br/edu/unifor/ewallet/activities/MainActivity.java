@@ -24,6 +24,7 @@ import br.edu.unifor.ewallet.controllers.ContaController;
 import br.edu.unifor.ewallet.fragments.FragmentCartao;
 import br.edu.unifor.ewallet.fragments.FragmentContas;
 import br.edu.unifor.ewallet.fragments.FragmentDespesas;
+import br.edu.unifor.ewallet.fragments.FragmentDespesasGrafico;
 import br.edu.unifor.ewallet.fragments.FragmentHome;
 import br.edu.unifor.ewallet.fragments.FragmentMetas;
 import br.edu.unifor.ewallet.fragments.FragmentMovimentacoes;
@@ -150,6 +151,8 @@ public class MainActivity extends AppCompatActivity
             frag = new FragmentDespesas();
         } else if (id == R.id.nav_metas) {
             frag = new FragmentMetas();
+        }else if (id == R.id.nav_grafico_despesas){
+            frag = new FragmentDespesasGrafico();
         }
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
