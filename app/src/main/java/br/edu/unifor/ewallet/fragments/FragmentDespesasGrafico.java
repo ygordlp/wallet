@@ -52,7 +52,7 @@ public class FragmentDespesasGrafico extends Fragment {
         HashMap<String, Float> map = new HashMap<String, Float>();
 
         for (Despesa despesa: DespesaController.getAll() ) {
-            map.put(despesa.getTipoDespesa().getString() , verificaNumero(map.get(despesa.getTipoDespesa().getString())) + Float.valueOf(despesa.getValor().toString()));
+            map.put(despesa.getCategoria().getDescricao() , verificaNumero(map.get(despesa.getCategoria().getDescricao())) + Float.valueOf(despesa.getValor().toString()));
         }
 
         Set<String> chaves = map.keySet();

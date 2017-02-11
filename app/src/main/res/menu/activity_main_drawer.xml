@@ -11,9 +11,9 @@
             android:icon="@drawable/ic_contas"
             android:title="Contas" />
         <item
-            android:id="@+id/nav_movimentacoes"
+            android:id="@+id/nav_categorias"
             android:icon="@drawable/ic_movimentacoes"
-            android:title="Movimentações" />
+            android:title="Categorias" />
         <item
             android:id="@+id/nav_cartao"
             android:icon="@drawable/ic_credit_card"

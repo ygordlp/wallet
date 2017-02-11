@@ -28,7 +28,7 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_home, container, false);
 
-        adapter = new HomeListAdapter(getContext(), ContaController.getAll(), DespesaController.getDespesasDoMes());
+        adapter = new HomeListAdapter(getContext(), ContaController.getAll(), getActivity(), DespesaController.getDespesasDoMes());
         listHome = (ListView) rootview.findViewById(R.id.listHome);
 
         listHome.setAdapter(adapter);

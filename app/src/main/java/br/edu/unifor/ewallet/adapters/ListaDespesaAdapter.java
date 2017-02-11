@@ -62,7 +62,7 @@ public class ListaDespesaAdapter extends BaseAdapter {
 
 
 
-        txtCategoriaDespesa.setText(despesas.get(i).getTipoDespesa().getString());
+        txtCategoriaDespesa.setText(despesas.get(i).getCategoria().getDescricao());
         txtValorDespesa.setText("R$ "+despesas.get(i).getValor());
         txtTipoContaDespesa.setText( despesas.get(i).getConta().getTipoConta().getString());
         txtDataDespesa.setText(despesas.get(i).getDateBr());
