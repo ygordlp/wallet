@@ -13,20 +13,20 @@ public class Receita extends SugarRecord {
     private Double valor;
     private String data;
     private String descricao;
-    private boolean isPago;
+    private boolean isRecebida;
     private boolean isFixa;
 
     public Receita() {
 
     }
 
-    public Receita(Conta conta, TipoReceita tipoReceita, Double valor, String data, String descricao, boolean isPago, boolean isFixa) {
+    public Receita(Conta conta, TipoReceita tipoReceita, Double valor, String data, String descricao, boolean isRecebida, boolean isFixa) {
         this.conta = conta;
         this.tipoReceita = tipoReceita;
         this.valor = valor;
         this.data = data;
         this.descricao = descricao;
-        this.isPago = isPago;
+        this.isRecebida = isRecebida;
         this.isFixa = isFixa;
     }
 
@@ -70,12 +70,12 @@ public class Receita extends SugarRecord {
         this.descricao = descricao;
     }
 
-    public boolean isPago() {
-        return isPago;
+    public boolean isRecebida() {
+        return isRecebida;
     }
 
-    public void setPago(boolean pago) {
-        isPago = pago;
+    public void setRecebida(boolean recebida) {
+        isRecebida = recebida;
     }
 
     public boolean isFixa() {

@@ -35,35 +35,40 @@
         <activity
             android:name=".activities.LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.CadastroUsuarioActivity"
             android:label="@string/title_activity_cadastro_usuario"
             android:parentActivityName=".activities.LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.InserirContaActivity"
             android:label="@string/title_activity_cadastro_conta"
             android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.InserirCartaoActivity"
             android:label="@string/title_activity_cadastro_cartao"
             android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.InserirDespesaActivity"
             android:label="@string/title_activity_despesa"
             android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.CadatroContaActivity"
             android:label="@string/title_activity_cadatro_conta"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.CadastroReceitaActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="@string/title_activity_cadastro_receita"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
