@@ -17,7 +17,10 @@ import android.view.View;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+
 import br.edu.unifor.ewallet.R;
+import br.edu.unifor.ewallet.controllers.ContaController;
 import br.edu.unifor.ewallet.fragments.FragmentCartao;
 import br.edu.unifor.ewallet.fragments.FragmentContas;
 import br.edu.unifor.ewallet.fragments.FragmentDespesas;
@@ -26,6 +29,7 @@ import br.edu.unifor.ewallet.fragments.FragmentMetas;
 import br.edu.unifor.ewallet.fragments.FragmentMovimentacoes;
 import br.edu.unifor.ewallet.fragments.FragmentReceitas;
 import br.edu.unifor.ewallet.models.Conta;
+import br.edu.unifor.ewallet.models.TipoConta;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -75,6 +79,28 @@ public class MainActivity extends AppCompatActivity
         this.mFabDespesas.setOnClickListener(onClickListener);
         this.mFabMetas.setOnClickListener(onClickListener);
 
+        criarContasPadrao();
+
+    }
+
+    private void criarContasPadrao() {
+
+        List<Conta> contas = Conta.listAll(Conta.class);
+        if (contas.size() >= 2) {
+            return;
+        }
+
+        Conta contaCorrente = new Conta();
+        contaCorrente.setTitulo("Conta Corrente");
+        contaCorrente.setSaldo(0d);
+        contaCorrente.setTipoConta(TipoConta.CORRENTE);
+        ContaController.insert(contaCorrente);
+
+        Conta carteira = new Conta();
+        carteira.setTitulo("Carteira");
+        carteira.setSaldo(0d);
+        carteira.setTipoConta(TipoConta.CARTEIRA);
+        ContaController.insert(carteira);
     }
 
     @Override
