@@ -43,7 +43,7 @@ public class GraficoDespesasActivity extends AppCompatActivity {
 
         for (Despesa despesa: DespesaController.getAll() ) {
             DecimalFormat df = new DecimalFormat("#.00");
-            map.put(despesa.getTipoDespesa().getString() , verificaNumero(map.get(despesa.getTipoDespesa().getString())) + Float.valueOf(despesa.getValor().toString()));
+            map.put(despesa.getCategoria().getDescricao() , verificaNumero(map.get(despesa.getCategoria().getDescricao())) + Float.valueOf(despesa.getValor().toString()));
         }
 
         Set<String> chaves = map.keySet();

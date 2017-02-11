@@ -101,7 +101,7 @@ public class HomeListAdapter extends BaseAdapter implements DatePickerDialog.OnD
             TextView txtTipoContaDespesa = (TextView) view.findViewById(R.id.txtTipoContaDespesa);
             TextView txtDataDespesa = (TextView) view.findViewById(R.id.txtDataDespesa);
 
-            txtCategoriaDespesa.setText(despesas.get(position - 2 - contas.size()).getTipoDespesa().getString());
+            txtCategoriaDespesa.setText(despesas.get(position - 2 - contas.size()).getCategoria().getDescricao());
             txtValorDespesa.setText("R$ "+despesas.get(position - 2 - contas.size()).getValor());
             txtTipoContaDespesa.setText( despesas.get(position - 2 - contas.size()).getConta().getTipoConta().getString());
             txtDataDespesa.setText(despesas.get(position - 2 - contas.size()).getDateBr());
