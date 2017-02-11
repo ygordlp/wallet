@@ -30,6 +30,11 @@
             android:id="@+id/nav_metas"
             android:icon="@drawable/ic_flag_black_24dp"
             android:title="Metas" />
+        <item
+            android:id="@+id/nav_grafico_despesas"
+            android:icon="@drawable/ic_flag_black_24dp"
+            android:title="Gráfico despesas" />
+
     </group>
 
     <!--<item android:title="Communicate">-->
