@@ -30,7 +30,7 @@ public class DespesaController {
     public static Long update(Despesa despesa, Long id) {
         Despesa despesaAtual = getById(id);
         despesaAtual.setConta(despesa.getConta());
-        despesaAtual.setTipoDespesa(despesa.getTipoDespesa());
+        despesaAtual.setCategoria(despesa.getCategoria());
         despesaAtual.setValor(despesa.getValor());
         despesaAtual.setData(new Date());
         despesaAtual.setDescricao(despesa.getDescricao());

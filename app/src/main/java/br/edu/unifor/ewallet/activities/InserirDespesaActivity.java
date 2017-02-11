@@ -1,5 +1,6 @@
 package br.edu.unifor.ewallet.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
@@ -7,9 +8,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -21,8 +24,10 @@ import java.util.Date;
 import java.util.List;
 
 import br.edu.unifor.ewallet.R;
+import br.edu.unifor.ewallet.controllers.CategoriaController;
 import br.edu.unifor.ewallet.controllers.ContaController;
 import br.edu.unifor.ewallet.controllers.DespesaController;
+import br.edu.unifor.ewallet.models.Categoria;
 import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.Despesa;
 import br.edu.unifor.ewallet.models.TipoDespesa;
@@ -41,6 +46,7 @@ public class InserirDespesaActivity extends AppCompatActivity implements TimePic
     private CheckBox mIsPago;
     private CheckBox mIsFixa;
     private Button mBtnCadastra;
+    private ImageButton mBtnInserirCategoria;
     private CoordinatorLayout coordinatorLayout;
     Calendar now = Calendar.getInstance();
     private Date dateSelected;
@@ -64,12 +70,15 @@ public class InserirDespesaActivity extends AppCompatActivity implements TimePic
         this.mIsPago = (CheckBox) findViewById(R.id.is_pago);
         this.mIsFixa = (CheckBox) findViewById(R.id.is_fixa);
         this.mBtnCadastra = (Button) findViewById(R.id.btn_cadastra);
+        this.mBtnInserirCategoria = (ImageButton) findViewById(R.id.btnInserirCategoria);
+        ArrayAdapter categoriasAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, CategoriaController.getAll());
+        this.mSelectTipoDespesa.setAdapter(categoriasAdapter);
 
         this.mBtnCadastra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Despesa despesa = new Despesa(ContaController.getByNome(mSelectContas.getSelectedItem().toString()),
-                        TipoDespesa.getValue(mSelectTipoDespesa.getSelectedItem().toString()),
+                        CategoriaController.getByDescricao(mSelectTipoDespesa.getSelectedItem().toString()),
                         Double.valueOf(mEdtValor.getText().toString()), dateSelected,
                         mEdtDescricao.getText().toString(), mIsPago.isChecked(), mIsFixa.isChecked());
 
@@ -99,6 +108,14 @@ public class InserirDespesaActivity extends AppCompatActivity implements TimePic
             }
         });
 
+        mBtnInserirCategoria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InserirDespesaActivity.this, CadastroCategoriaActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -111,6 +128,15 @@ public class InserirDespesaActivity extends AppCompatActivity implements TimePic
 
     @Override
     public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ArrayAdapter categoriasAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, CategoriaController.getAll());
+        this.mSelectTipoDespesa.setAdapter(categoriasAdapter);
+        categoriasAdapter.notifyDataSetChanged();
 
     }
 }

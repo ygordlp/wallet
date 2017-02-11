@@ -66,9 +66,13 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.CadastroReceitaActivity"
-            android:parentActivityName=".activities.MainActivity"
             android:label="@string/title_activity_cadastro_receita"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.CadastroCategoriaActivity"
+            android:label="@string/title_activity_cadastro_categoria"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

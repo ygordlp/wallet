@@ -20,14 +20,17 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 import br.edu.unifor.ewallet.R;
+import br.edu.unifor.ewallet.controllers.CategoriaController;
 import br.edu.unifor.ewallet.controllers.ContaController;
 import br.edu.unifor.ewallet.fragments.FragmentCartao;
+import br.edu.unifor.ewallet.fragments.FragmentCategorias;
 import br.edu.unifor.ewallet.fragments.FragmentContas;
 import br.edu.unifor.ewallet.fragments.FragmentDespesas;
 import br.edu.unifor.ewallet.fragments.FragmentHome;
 import br.edu.unifor.ewallet.fragments.FragmentMetas;
 import br.edu.unifor.ewallet.fragments.FragmentMovimentacoes;
 import br.edu.unifor.ewallet.fragments.FragmentReceitas;
+import br.edu.unifor.ewallet.models.Categoria;
 import br.edu.unifor.ewallet.models.Conta;
 import br.edu.unifor.ewallet.models.TipoConta;
 
@@ -77,7 +80,23 @@ public class MainActivity extends AppCompatActivity
         this.mFabMetas.setOnClickListener(onClickListener);
 
         criarContasPadrao();
+        criarCategoriasPadrao();
 
+    }
+
+    private void criarCategoriasPadrao() {
+        List<Categoria> categorias = Categoria.listAll(Categoria.class);
+
+        if (categorias.isEmpty()) {
+            CategoriaController.insert(new Categoria("Alimentação", "Alimentação"));
+            CategoriaController.insert(new Categoria("Educação", "Educação"));
+            CategoriaController.insert(new Categoria("Lazer", "Lazer"));
+            CategoriaController.insert(new Categoria("Moradia", "Moradia"));
+            CategoriaController.insert(new Categoria("Pagamentos", "Pagamentos"));
+            CategoriaController.insert(new Categoria("Roupa", "Roupa"));
+            CategoriaController.insert(new Categoria("Saúde", "Saúde"));
+            CategoriaController.insert(new Categoria("Transporte", "Transporte"));
+        }
     }
 
     private void criarContasPadrao() {
@@ -140,8 +159,8 @@ public class MainActivity extends AppCompatActivity
             frag = new FragmentHome();
         } else if (id == R.id.nav_contas) {
             frag = new FragmentContas();
-        } else if (id == R.id.nav_movimentacoes) {
-            frag = new FragmentMovimentacoes();
+        } else if (id == R.id.nav_categorias) {
+            frag = new FragmentCategorias();
         } else if (id == R.id.nav_cartao) {
             frag = new FragmentCartao();
         }else if (id == R.id.nav_receitas) {
