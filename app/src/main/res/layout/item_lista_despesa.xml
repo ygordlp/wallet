@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <TableLayout
+        android:stretchColumns="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:padding="2dp">
+            <TextView
+                android:id="@+id/txtCategoriaDespesa"
+                android:layout_column="1"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Categoria Despesa"
+                android:textSize="18sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$ 000.00"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:id="@+id/txtValorDespesa"
+                android:gravity="right"
+                />
+        </TableRow>
+
+
+        <TableRow
+            android:padding="2dp">
+            <TextView
+                android:id="@+id/txtTipoContaDespesa"
+                android:layout_column="1"
+                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="0.7"
+                android:text="Carteira"
+
+                />
+            <TextView
+                android:gravity="right"
+                android:id="@+id/txtDataDespesa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xx/xx/xxxx"
+                />
+        </TableRow>
+
+
+
+    </TableLayout>
+
+</LinearLayout>
