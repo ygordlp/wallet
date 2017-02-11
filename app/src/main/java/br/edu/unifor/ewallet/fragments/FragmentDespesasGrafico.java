@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -22,19 +23,28 @@ import java.util.List;
 import java.util.Set;
 
 import br.edu.unifor.ewallet.R;
+import br.edu.unifor.ewallet.adapters.ListaDespesaAdapter;
+import br.edu.unifor.ewallet.adapters.ListaDespesaGraficoAdapter;
 import br.edu.unifor.ewallet.controllers.DespesaController;
 import br.edu.unifor.ewallet.models.Despesa;
+import br.edu.unifor.ewallet.models.TipoDespesa;
 
 
 public class FragmentDespesasGrafico extends Fragment {
 
     private View rootview;
+    private ListView listViewDespesas;
+    private ListaDespesaGraficoAdapter listaDespesaGraficoAdapter;
+    private List<Despesa> despesasGrafico = new ArrayList<>();
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_despesas_grafico, container, false);
+
+        this.listViewDespesas = (ListView) rootview.findViewById(R.id.listDespesasGrafico);
+
 
         PieChart chart = (PieChart) rootview.findViewById(R.id.chart);
         List<PieEntry> entries = new ArrayList<>();
@@ -48,9 +58,16 @@ public class FragmentDespesasGrafico extends Fragment {
         Set<String> chaves = map.keySet();
         for (String chave : chaves) {
             if (chave != null){
+                Despesa novaDespesa = new Despesa();
+                novaDespesa.setTipoDespesa(TipoDespesa.getValue(chave));
+                novaDespesa.setValor(Double.parseDouble(map.get(chave).toString()));
+                despesasGrafico.add(novaDespesa);
+
                 entries.add(new PieEntry(map.get(chave), chave));
             }
         }
+
+
 
         PieDataSet set = new PieDataSet(entries, "Election Results");
         set.setValueFormatter(new DefaultValueFormatter(2));
@@ -59,6 +76,10 @@ public class FragmentDespesasGrafico extends Fragment {
         chart.setData(data);
         chart.invalidate();
         data.setValueTextSize(15f);
+
+        this.listaDespesaGraficoAdapter = new ListaDespesaGraficoAdapter(despesasGrafico, rootview.getContext());
+
+        this.listViewDespesas.setAdapter(this.listaDespesaGraficoAdapter);
         return rootview;
     }
 
