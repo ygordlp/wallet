@@ -63,7 +63,7 @@ public class ListaDespesaGraficoAdapter extends BaseAdapter {
 
 
 
-        txtCategoriaDespesa.setText(despesas.get(i).getTipoDespesa().getString());
+        txtCategoriaDespesa.setText(despesas.get(i).getCategoria().getDescricao());
         txtValorDespesa.setText("R$ "+despesas.get(i).getValor());
 //        txtTipoContaDespesa.setText( "");
         txtDataDespesa.setText("");

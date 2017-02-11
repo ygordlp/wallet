@@ -26,6 +26,7 @@ import br.edu.unifor.ewallet.R;
 import br.edu.unifor.ewallet.adapters.ListaDespesaAdapter;
 import br.edu.unifor.ewallet.adapters.ListaDespesaGraficoAdapter;
 import br.edu.unifor.ewallet.controllers.DespesaController;
+import br.edu.unifor.ewallet.models.Categoria;
 import br.edu.unifor.ewallet.models.Despesa;
 import br.edu.unifor.ewallet.models.TipoDespesa;
 
@@ -59,7 +60,8 @@ public class FragmentDespesasGrafico extends Fragment {
         for (String chave : chaves) {
             if (chave != null){
                 Despesa novaDespesa = new Despesa();
-                novaDespesa.setTipoDespesa(TipoDespesa.getValue(chave));
+                novaDespesa.setCategoria(new Categoria(chave , chave ));
+//                novaDespesa.setTipoDespesa(TipoDespesa.getValue(chave));
                 novaDespesa.setValor(Double.parseDouble(map.get(chave).toString()));
                 despesasGrafico.add(novaDespesa);
 
