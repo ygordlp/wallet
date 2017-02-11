@@ -60,7 +60,7 @@ public class ListaDespesaAdapter extends BaseAdapter {
         TextView txtDataDespesa = (TextView) view.findViewById(R.id.txtDataDespesa);
 
 
-//        txtCategoriaDespesa.setText(despesas.get(i).getTipoDespesa().getString());
+        txtCategoriaDespesa.setText(despesas.get(i).getTipoDespesa().getString());
         txtValorDespesa.setText("R$ "+despesas.get(i).getValor());
         txtTipoContaDespesa.setText( despesas.get(i).getConta().getTipoConta().getString());
         txtDataDespesa.setText(despesas.get(i).getDataSaida());
