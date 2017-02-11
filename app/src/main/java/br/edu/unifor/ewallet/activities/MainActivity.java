@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Cadastro de Conta");
+        toolbar.setTitle("Wallet");
         setSupportActionBar(toolbar);
 
         this.mFabCartaoCredito = (FloatingActionButton) findViewById(R.id.fab_cartao_credito);

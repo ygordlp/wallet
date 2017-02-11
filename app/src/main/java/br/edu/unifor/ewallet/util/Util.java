@@ -22,11 +22,14 @@ public class Util {
         return calendar.getTime();
     }
 
-    public static String getCurrentMonthName() {
+    public static String getMonthName(Date date) {
         String[] monthName = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho",
                 "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
 
         Calendar cal = Calendar.getInstance();
+        if (date != null) {
+            cal.setTime(date);
+        }
         return monthName[cal.get(Calendar.MONTH)];
     }
 

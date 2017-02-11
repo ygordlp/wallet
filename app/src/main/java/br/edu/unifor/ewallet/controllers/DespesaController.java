@@ -1,8 +1,6 @@
 package br.edu.unifor.ewallet.controllers;
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import br.edu.unifor.ewallet.models.Conta;
@@ -29,6 +27,9 @@ public class DespesaController {
     }
 
     public static List<Despesa> getDespesasDoMes(Date date) {
+        if (date == null) {
+            date = new Date();
+        }
         Date startOfMonth = Util.getStartOfMonth(date);
         return Despesa.find(Despesa.class, "data IS NOT NULL AND data >= " + startOfMonth.getTime());
     }
