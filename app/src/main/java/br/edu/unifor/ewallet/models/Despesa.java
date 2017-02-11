@@ -17,8 +17,6 @@ public class Despesa extends SugarRecord {
     private boolean isPago;
     private boolean isFixa;
 
-
-
     public Despesa() {
 
     }

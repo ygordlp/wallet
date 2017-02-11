@@ -8,13 +8,12 @@ public enum TipoDespesa {
 
     ALIMENTACAO, EDUCACAO, LAZER, MORADIA, PAGAMENTOS, ROUPA, SAUDE, TRANSPORTE, OUTROS;
 
-
     public String getString(){
         switch (this){
             case ALIMENTACAO:
-                return "Alimentacao";
+                return "Alimentação";
             case EDUCACAO:
-                return "Educacao";
+                return "Educação";
             case LAZER:
                 return "Lazer";
             case MORADIA:
@@ -24,7 +23,7 @@ public enum TipoDespesa {
             case ROUPA:
                 return "Roupa";
             case SAUDE:
-                return "Saude";
+                return "Saúde";
             case TRANSPORTE:
                 return "Transporte";
             case OUTROS:
@@ -36,9 +35,9 @@ public enum TipoDespesa {
 
     public static TipoDespesa getValue(String string) {
         switch (string){
-            case "Alimentacao":
+            case "Alimentação":
                 return ALIMENTACAO;
-            case "Educacao":
+            case "Educação":
                 return EDUCACAO;
             case "Lazer":
                 return LAZER;
@@ -48,7 +47,7 @@ public enum TipoDespesa {
                 return PAGAMENTOS;
             case "Roupa":
                 return ROUPA;
-            case "Saude":
+            case "Saúde":
                 return SAUDE;
             case "Transporte":
                 return TRANSPORTE;
