@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Fragment frag;
-    private FloatingActionButton mFabContas;
     private FloatingActionButton mFabCartaoCredito;
     private FloatingActionButton mFabReceitas;
     private FloatingActionButton mFabDespesas;
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity
         toolbar.setTitle("Cadastro de Conta");
         setSupportActionBar(toolbar);
 
-        this.mFabContas = (FloatingActionButton) findViewById(R.id.fab_contas);
         this.mFabCartaoCredito = (FloatingActionButton) findViewById(R.id.fab_cartao_credito);
         this.mFabReceitas = (FloatingActionButton) findViewById(R.id.fab_receitas);
         this.mFabDespesas = (FloatingActionButton) findViewById(R.id.fab_despesas);
@@ -73,7 +71,6 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
         }
 
-        this.mFabContas.setOnClickListener(onClickListener);
         this.mFabCartaoCredito.setOnClickListener(onClickListener);
         this.mFabReceitas.setOnClickListener(onClickListener);
         this.mFabDespesas.setOnClickListener(onClickListener);
@@ -170,9 +167,6 @@ public class MainActivity extends AppCompatActivity
         @Override
         public void onClick(View v) {
             switch(v.getId()){
-                case R.id.fab_contas:
-                    startActivity(new Intent(MainActivity.this, CadatroContaActivity.class));
-                    break;
                 case R.id.fab_cartao_credito:
                     startActivity(new Intent(MainActivity.this, InserirCartaoActivity.class));
                     break;
