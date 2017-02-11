@@ -93,8 +93,11 @@ public class Despesa extends SugarRecord {
     }
 
     public String getDateBr(){
-        String stringData;
+        if (data == null) {
+            return "";
+        }
 
+        String stringData;
         Format formatter;
 
         formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
