@@ -3,7 +3,10 @@ package br.edu.unifor.ewallet.models;
 import com.google.common.base.Strings;
 import com.orm.SugarRecord;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by alunor17 on 04/02/17.
@@ -87,5 +90,16 @@ public class Despesa extends SugarRecord {
 
     public void setFixa(boolean fixa) {
         isFixa = fixa;
+    }
+
+    public String getDateBr(){
+        String stringData;
+
+        Format formatter;
+
+        formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+        stringData = formatter.format(data);
+
+        return stringData;
     }
 }
