@@ -33,8 +33,11 @@ public class Util {
         return monthName[cal.get(Calendar.MONTH)];
     }
 
-    public static int getCurrentYear() {
+    public static int getYear(Date date) {
         Calendar cal = Calendar.getInstance();
+        if (date != null) {
+            cal.setTime(date);
+        }
         return cal.get(Calendar.YEAR);
     }
 

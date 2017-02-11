@@ -30,8 +30,7 @@ public class HomeListAdapter extends BaseAdapter implements DatePickerDialog.OnD
     private List<Conta> contas;
     private List<Despesa> despesas;
     private LayoutInflater inflater;
-    private Date dateSelected;
-    private String monthFilter;
+    private Date dateSelected = new Date();
     Calendar now = Calendar.getInstance();
     Activity activity;
 
@@ -80,7 +79,7 @@ public class HomeListAdapter extends BaseAdapter implements DatePickerDialog.OnD
             view = inflater.inflate(R.layout.item_list_home_header, parent, false);
 
             TextView txtTitulo = (TextView) view.findViewById(R.id.txtTitleContas);
-            txtTitulo.setText("Despesas do mês (" + Util.getMonthName(null) + "/" + Util.getCurrentYear() + ")");
+            txtTitulo.setText("Despesas do mês (" + Util.getMonthName(dateSelected) + "/" + Util.getYear(dateSelected) + ")");
             txtTitulo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -90,6 +89,7 @@ public class HomeListAdapter extends BaseAdapter implements DatePickerDialog.OnD
                             now.get(Calendar.MONTH),
                             now.get(Calendar.DAY_OF_MONTH)
                     );
+                    dpd.showYearPickerFirst(true);
                     dpd.show(activity.getFragmentManager(), "Datepickerdialog");
                 }
             });
@@ -114,6 +114,7 @@ public class HomeListAdapter extends BaseAdapter implements DatePickerDialog.OnD
         String date = ""+(monthOfYear+1)+"/"+dayOfMonth+"/"+year;
         dateSelected = new Date(Date.parse(date));
         despesas = DespesaController.getDespesasDoMes(dateSelected);
+//        monthFilter = Util.getMonthName(dateSelected);
         notifyDataSetChanged();
     }
 }
