@@ -11,7 +11,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
+import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
+
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import br.edu.unifor.ewallet.R;
@@ -25,10 +31,10 @@ import br.edu.unifor.ewallet.models.TipoDespesa;
  * Created by maycon on 2/10/17.
  */
 
-public class InserirDespesaActivity extends AppCompatActivity {
+public class InserirDespesaActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
 
     private EditText mEdtValor;
-    private EditText mEdtDataSaida;
+    private TextView mEdtDataSaida;
     private EditText mEdtDescricao;
     private Spinner mSelectTipoDespesa;
     private Spinner mSelectContas;
@@ -36,6 +42,8 @@ public class InserirDespesaActivity extends AppCompatActivity {
     private CheckBox mIsFixa;
     private Button mBtnCadastra;
     private CoordinatorLayout coordinatorLayout;
+    Calendar now = Calendar.getInstance();
+    private Date dateSelected;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +57,7 @@ public class InserirDespesaActivity extends AppCompatActivity {
         this.coordinatorLayout = (CoordinatorLayout) findViewById(R.id.cadastro_despesa);
 
         this.mEdtValor = (EditText) findViewById(R.id.edt_valor_despesas);
-        this.mEdtDataSaida = (EditText) findViewById(R.id.edt_data_saida);
+        this.mEdtDataSaida = (TextView) findViewById(R.id.edt_data_saida);
         this.mEdtDescricao = (EditText) findViewById(R.id.edt_descricao);
         this.mSelectTipoDespesa = (Spinner) findViewById(R.id.select_tipo_despesa);
         this.mSelectContas = (Spinner) findViewById(R.id.select_contas);
@@ -62,7 +70,7 @@ public class InserirDespesaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Despesa despesa = new Despesa(ContaController.getByNome(mSelectContas.getSelectedItem().toString()),
                         TipoDespesa.getValue(mSelectTipoDespesa.getSelectedItem().toString()),
-                        Double.valueOf(mEdtValor.getText().toString()), mEdtDataSaida.getText().toString(),
+                        Double.valueOf(mEdtValor.getText().toString()), dateSelected,
                         mEdtDescricao.getText().toString(), mIsPago.isChecked(), mIsFixa.isChecked());
 
                 Snackbar snackbar = null;
@@ -79,6 +87,33 @@ public class InserirDespesaActivity extends AppCompatActivity {
             }
         });
 
+        mEdtDataSaida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatePickerDialog dpd = DatePickerDialog.newInstance(
+                        InserirDespesaActivity.this,
+                        now.get(Calendar.YEAR),
+                        now.get(Calendar.MONTH),
+                        now.get(Calendar.DAY_OF_MONTH)
+                );
+                dpd.show(getFragmentManager(), "Datepickerdialog");
+            }
+        });
+
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        String date = ""+dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
+        dateSelected = new Date();
+        dateSelected.setDate(dayOfMonth);
+        dateSelected.setMonth(monthOfYear+1);
+        dateSelected.setYear(year);
+        mEdtDataSaida.setText(date);
+    }
+
+    @Override
+    public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
 
     }
 }
